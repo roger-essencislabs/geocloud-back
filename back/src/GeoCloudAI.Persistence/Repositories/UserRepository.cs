@@ -5,13 +5,14 @@ using GeoCloudAI.Domain.Classes;
 using GeoCloudAI.Persistence.Data;
 using GeoCloudAI.Persistence.Contracts;
 using GeoCloudAI.Persistence.Models;
+using GeoCloudAI.Application.Helpers;
 
 namespace GeoCloudAI.Persistence.Repositories
 {
-    public class UserRepository: IUserRepository
+    public class UserRepository : IUserRepository
     {
         private DbSession _db;
-        
+
         public UserRepository(DbSession dbSession)
         {
             _db = dbSession;
@@ -21,6 +22,9 @@ namespace GeoCloudAI.Persistence.Repositories
         {
             try
             {
+                var hash = new HashHelper();
+                user.Password = hash.GetHashString(user.Password);
+
                 var existingUser = await GetByEmail(user.Email!);
                 if (existingUser != null) { throw new Exception("Email already registered."); }
 
@@ -52,6 +56,9 @@ namespace GeoCloudAI.Persistence.Repositories
         {
             try
             {
+                var hash = new HashHelper();
+                user.Password = hash.GetHashString(user.Password);
+
                 var conn = _db.Connection;
                 if (user.ProfileId == 0) { return 0; }
                 if (user.CountryId == 0) { return 0; }
@@ -101,23 +108,26 @@ namespace GeoCloudAI.Persistence.Repositories
             try
             {
                 var conn = _db.Connection;
-                var term         = pageParams.Term;
-                var orderField   = pageParams.OrderField;
+                var term = pageParams.Term;
+                var orderField = pageParams.OrderField;
                 var orderReverse = pageParams.OrderReverse;
                 string query = @"SELECT U.*, 'split', P.*, 'split', A.*, 'split', C.*
                                 FROM User U  
                                 INNER JOIN Profile P ON U.profileId = P.id
                                 INNER JOIN Account A ON P.AccountId = A.id
                                 INNER JOIN Country C ON U.CountryId = C.id ";
-                if (term != ""){
+                if (term != "")
+                {
                     query = query + "AND (U.firstName LIKE '%" + term + "%' " +
                                     "OR   U.lastName  LIKE '%" + term + "%' " +
                                     "OR   P.name      LIKE '%" + term + "%' " +
                                     "OR   A.company   LIKE '%" + term + "%') ";
                 }
-                if (orderField != ""){
+                if (orderField != "")
+                {
                     query = query + " ORDER BY " + orderField;
-                    if (orderReverse) {
+                    if (orderReverse)
+                    {
                         query = query + " DESC ";
                     }
                 }
@@ -144,24 +154,27 @@ namespace GeoCloudAI.Persistence.Repositories
             try
             {
                 var conn = _db.Connection;
-                var term         = pageParams.Term;
-                var orderField   = pageParams.OrderField;
+                var term = pageParams.Term;
+                var orderField = pageParams.OrderField;
                 var orderReverse = pageParams.OrderReverse;
                 string query = @"SELECT U.*, 'split', P.*, 'split', A.*, 'split', C.*
                                 FROM User U  
                                 INNER JOIN Profile P ON U.profileId = P.id
                                 INNER JOIN Account A ON P.AccountId = A.id
                                 INNER JOIN Country C ON U.CountryId = C.id 
-                                WHERE A.id = @accountId "; 
-                if (term != ""){
+                                WHERE A.id = @accountId ";
+                if (term != "")
+                {
                     query = query + "AND (U.firstName LIKE '%" + term + "%' " +
                                     "OR   U.lastName  LIKE '%" + term + "%' " +
                                     "OR   P.name      LIKE '%" + term + "%' " +
                                     "OR   A.company   LIKE '%" + term + "%') ";
                 }
-                if (orderField != ""){
+                if (orderField != "")
+                {
                     query = query + " ORDER BY " + orderField;
-                    if (orderReverse) {
+                    if (orderReverse)
+                    {
                         query = query + " DESC ";
                     }
                 }
@@ -243,9 +256,18 @@ namespace GeoCloudAI.Persistence.Repositories
             }
         }
 
-        public async Task<User> Login(string email, string password){
+        // Adicione a diretiva using para o namespace onde HashHelper está definido.
+        // Exemplo: using GeoCloudAI.Domain.Helpers; (ajuste conforme necessário)
+        // using GeoCloudAI.Domain.Helpers;
+
+        public async Task<User> Login(string email, string password)
+        {
             try
             {
+                // Certifique-se de que a classe HashHelper existe e está acessível.
+                // Se não existir, forneça a implementação ou peça mais informações.
+                var hash = new HashHelper();
+                password = hash.GetHashString(password);
                 var conn = _db.Connection;
                 string query = @"SELECT U.*, 'split', P.*, 'split', A.*, 'split', C.*
                                 FROM User U  
@@ -272,9 +294,7 @@ namespace GeoCloudAI.Persistence.Repositories
                 throw new Exception(ex.Message);
             }
         }
- 
+
     }
 
 }
-
-                
