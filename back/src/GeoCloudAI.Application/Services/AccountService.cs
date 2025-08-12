@@ -7,19 +7,33 @@ using GeoCloudAI.Persistence.Models;
 
 namespace GeoCloudAI.Application.Services
 {
+    /// <summary>
+    /// This class provides account-related services such as adding, updating, deleting, and retrieving accounts.
+    /// </summary>
+    /// <seealso cref="GeoCloudAI.Application.Contracts.IAccountService" />
     public class AccountService: IAccountService
     {
         private readonly IAccountRepository _accountRepository;
 
         private readonly IMapper _mapper;
-        
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AccountService"/> class.
+        /// </summary>
+        /// <param name="accountRepository">The account repository.</param>
+        /// <param name="mapper">The mapper.</param>
         public AccountService(IAccountRepository accountRepository,
                            IMapper mapper)
         {
             _accountRepository = accountRepository;
             _mapper = mapper;
         }
-
+        /// <summary>
+        /// Adds the specified account dto.
+        /// </summary>
+        /// <param name="accountDto">The account dto.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<AccountDto> Add(AccountDto accountDto) 
         {
             try
@@ -41,7 +55,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             } 
         }
-
+        /// <summary>
+        /// Updates the specified account dto.
+        /// </summary>
+        /// <param name="accountDto">The account dto.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<AccountDto> Update(AccountDto accountDto) 
         {
             try
@@ -66,7 +85,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             } 
         }
-
+        /// <summary>
+        /// Deletes the specified account identifier.
+        /// </summary>
+        /// <param name="accountId">The account identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<int> Delete(int accountId) 
         {
             try
@@ -78,7 +102,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             } 
         }
-
+        /// <summary>
+        /// Gets the specified page parameters.
+        /// </summary>
+        /// <param name="pageParams">The page parameters.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<PageList<AccountDto>> Get(PageParams pageParams) 
         {
             try
@@ -99,7 +128,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             }   
         }
-
+        /// <summary>
+        /// Gets the by identifier.
+        /// </summary>
+        /// <param name="accountId">The account identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<AccountDto> GetById(int accountId) 
         {
             try
@@ -115,7 +149,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             }  
         }
-
+        /// <summary>
+        /// Gets the by unique identifier.
+        /// </summary>
+        /// <param name="guid">The unique identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<int> GetByGuid(string guid) 
         {
             try
@@ -128,6 +167,5 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             }  
         }
-        
     }
 }

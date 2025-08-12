@@ -1,0 +1,755 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GeoCloudAI.Application</name>
+    </assembly>
+    <members>
+        <member name="T:GeoCloudAI.Application.Contracts.IAccountService">
+            <summary>
+            This interface defines the contract for account-related operations.
+            </summary>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IAccountService.Add(GeoCloudAI.Application.Dtos.AccountDto)">
+            <summary>
+            Adds the specified account dto.
+            </summary>
+            <param name="accountDto">The account dto.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IAccountService.Update(GeoCloudAI.Application.Dtos.AccountDto)">
+            <summary>
+            Updates the specified account dto.
+            </summary>
+            <param name="accountDto">The account dto.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IAccountService.Delete(System.Int32)">
+            <summary>
+            Deletes the specified account identifier.
+            </summary>
+            <param name="accountId">The account identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IAccountService.Get(GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the specified page parameters.
+            </summary>
+            <param name="pageParams">The page parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IAccountService.GetById(System.Int32)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="accountId">The account identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IAccountService.GetByGuid(System.String)">
+            <summary>
+            Gets the by unique identifier.
+            </summary>
+            <param name="guid">The unique identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GeoCloudAI.Application.Contracts.ICountryService">
+            <summary>
+            This interface defines the contract for country-related operations.
+            </summary>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.ICountryService.Get(System.String)">
+            <summary>
+            Gets the specified term.
+            </summary>
+            <param name="term">The term.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.ICountryService.GetById(System.Int32)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="countryId">The country identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GeoCloudAI.Application.Contracts.IProfileService">
+            <summary>
+            This interface defines the contract for profile-related operations.
+            </summary>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IProfileService.Add(GeoCloudAI.Application.Dtos.ProfileDto)">
+            <summary>
+            Adds the specified profile dto.
+            </summary>
+            <param name="profileDto">The profile dto.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IProfileService.Update(GeoCloudAI.Application.Dtos.ProfileDto)">
+            <summary>
+            Updates the specified profile dto.
+            </summary>
+            <param name="profileDto">The profile dto.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IProfileService.Delete(System.Int32)">
+            <summary>
+            Deletes the specified profile identifier.
+            </summary>
+            <param name="profileId">The profile identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IProfileService.Get(GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the specified page parameters.
+            </summary>
+            <param name="pageParams">The page parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IProfileService.GetByAccount(System.Int32,GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the by account.
+            </summary>
+            <param name="accountId">The account identifier.</param>
+            <param name="pageParams">The page parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IProfileService.GetById(System.Int32)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="profileId">The profile identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GeoCloudAI.Application.Contracts.IUserService">
+            <summary>
+            This interface defines the contract for user-related operations.
+            </summary>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IUserService.Add(GeoCloudAI.Application.Dtos.UserDto)">
+            <summary>
+            Adds the specified user dto.
+            </summary>
+            <param name="userDto">The user dto.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IUserService.Register(GeoCloudAI.Application.Dtos.UserDto)">
+            <summary>
+            Registers the specified user dto.
+            </summary>
+            <param name="userDto">The user dto.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IUserService.Update(GeoCloudAI.Application.Dtos.UserDto)">
+            <summary>
+            Updates the specified user dto.
+            </summary>
+            <param name="userDto">The user dto.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IUserService.GetByAccount(System.Int32,GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the by account.
+            </summary>
+            <param name="accountId">The account identifier.</param>
+            <param name="pageParams">The page parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IUserService.GetByEmail(System.String)">
+            <summary>
+            Gets the by email.
+            </summary>
+            <param name="email">The email.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IUserService.Login(System.String,System.String)">
+            <summary>
+            Logins the specified email.
+            </summary>
+            <param name="email">The email.</param>
+            <param name="password">The password.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IUserService.GenerateToken(GeoCloudAI.Application.Dtos.UserDto)">
+            <summary>
+            Generates the token.
+            </summary>
+            <param name="userDto">The user dto.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GeoCloudAI.Application.Dtos.AccountDto">
+            <summary>
+            This class represents a Data Transfer Object (DTO) for an account.
+            </summary>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.AccountDto.Id">
+            <summary>
+            Gets or sets the identifier. Id
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.AccountDto.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.AccountDto.Company">
+            <summary>
+            Gets or sets the company.
+            </summary>
+            <value>
+            The company.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.AccountDto.Employees">
+            <summary>
+            Gets or sets the employees.
+            </summary>
+            <value>
+            The employees.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.AccountDto.AcessMaxAttempts">
+            <summary>
+            Gets or sets the acess maximum attempts.
+            </summary>
+            <value>
+            The acess maximum attempts.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.AccountDto.ValidityUserPassword">
+            <summary>
+            Gets or sets the validity user password.
+            </summary>
+            <value>
+            The validity user password.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.AccountDto.ValidityInviteUser">
+            <summary>
+            Gets or sets the validity invite user.
+            </summary>
+            <value>
+            The validity invite user.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.AccountDto.ValidityInviteProject">
+            <summary>
+            Gets or sets the validity invite project.
+            </summary>
+            <value>
+            The validity invite project.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.AccountDto.Guid">
+            <summary>
+            Gets or sets the unique identifier.
+            </summary>
+            <value>
+            The unique identifier.
+            </value>
+        </member>
+        <member name="T:GeoCloudAI.Application.Dtos.CountryDto">
+            <summary>
+            This class represents a Data Transfer Object (DTO) for a country.
+            </summary>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.CountryDto.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.CountryDto.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.CountryDto.Acronym2">
+            <summary>
+            Gets or sets the acronym2.
+            </summary>
+            <value>
+            The acronym2.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.CountryDto.Acronym3">
+            <summary>
+            Gets or sets the acronym3.
+            </summary>
+            <value>
+            The acronym3.
+            </value>
+        </member>
+        <member name="T:GeoCloudAI.Application.Dtos.ProfileDto">
+            <summary>
+            This class represents a Data Transfer Object (DTO) for a profile.
+            </summary>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.ProfileDto.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.ProfileDto.AccountId">
+            <summary>
+            Gets or sets the account identifier.
+            </summary>
+            <value>
+            The account identifier.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.ProfileDto.Account">
+            <summary>
+            Gets or sets the account.
+            </summary>
+            <value>
+            The account.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.ProfileDto.Name">
+            <summary>
+            Gets or sets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.ProfileDto.ImgType">
+            <summary>
+            Gets or sets the type of the img.
+            </summary>
+            <value>
+            The type of the img.
+            </value>
+        </member>
+        <member name="T:GeoCloudAI.Application.Dtos.UserDto">
+            <summary>
+            This class represents a Data Transfer Object (DTO) for a user.
+            </summary>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.ProfileId">
+            <summary>
+            Gets or sets the profile identifier.
+            </summary>
+            <value>
+            The profile identifier.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.Profile">
+            <summary>
+            Gets or sets the profile.
+            </summary>
+            <value>
+            The profile.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>
+            The first name.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>
+            The last name.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.Phone">
+            <summary>
+            Gets or sets the phone.
+            </summary>
+            <value>
+            The phone.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+            <value>
+            The email.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.Password">
+            <summary>
+            Gets or sets the password.
+            </summary>
+            <value>
+            The password.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.CountryId">
+            <summary>
+            Gets or sets the country identifier.
+            </summary>
+            <value>
+            The country identifier.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.Country">
+            <summary>
+            Gets or sets the country.
+            </summary>
+            <value>
+            The country.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.State">
+            <summary>
+            Gets or sets the state.
+            </summary>
+            <value>
+            The state.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.City">
+            <summary>
+            Gets or sets the city.
+            </summary>
+            <value>
+            The city.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.Access">
+            <summary>
+            Gets or sets the access.
+            </summary>
+            <value>
+            The access.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.Attempts">
+            <summary>
+            Gets or sets the attempts.
+            </summary>
+            <value>
+            The attempts.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.Blocked">
+            <summary>
+            Gets or sets the blocked.
+            </summary>
+            <value>
+            The blocked.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.ImgTypeProfile">
+            <summary>
+            Gets or sets the img type profile.
+            </summary>
+            <value>
+            The img type profile.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.ImgTypeCover">
+            <summary>
+            Gets or sets the img type cover.
+            </summary>
+            <value>
+            The img type cover.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.Register">
+            <summary>
+            Gets or sets the register.
+            </summary>
+            <value>
+            The register.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.UserDto.Token">
+            <summary>
+            Gets or sets the token.
+            </summary>
+            <value>
+            The token.
+            </value>
+        </member>
+        <member name="T:GeoCloudAI.Application.Helpers.GeoCloudAIProfile">
+            <summary>
+            This class represents the AutoMapper profile for GeoCloudAI, defining mappings between domain models and DTOs.
+            </summary>
+            <seealso cref="T:AutoMapper.Profile" />
+        </member>
+        <member name="M:GeoCloudAI.Application.Helpers.GeoCloudAIProfile.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:GeoCloudAI.Application.Helpers.GeoCloudAIProfile"/> class.
+            </summary>
+        </member>
+        <member name="T:GeoCloudAI.Application.Services.AccountService">
+            <summary>
+            This class provides account-related services such as adding, updating, deleting, and retrieving accounts.
+            </summary>
+            <seealso cref="T:GeoCloudAI.Application.Contracts.IAccountService" />
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.AccountService.#ctor(GeoCloudAI.Persistence.Contracts.IAccountRepository,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GeoCloudAI.Application.Services.AccountService"/> class.
+            </summary>
+            <param name="accountRepository">The account repository.</param>
+            <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.AccountService.Add(GeoCloudAI.Application.Dtos.AccountDto)">
+            <summary>
+            Adds the specified account dto.
+            </summary>
+            <param name="accountDto">The account dto.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.AccountService.Update(GeoCloudAI.Application.Dtos.AccountDto)">
+            <summary>
+            Updates the specified account dto.
+            </summary>
+            <param name="accountDto">The account dto.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.AccountService.Delete(System.Int32)">
+            <summary>
+            Deletes the specified account identifier.
+            </summary>
+            <param name="accountId">The account identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.AccountService.Get(GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the specified page parameters.
+            </summary>
+            <param name="pageParams">The page parameters.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.AccountService.GetById(System.Int32)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="accountId">The account identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.AccountService.GetByGuid(System.String)">
+            <summary>
+            Gets the by unique identifier.
+            </summary>
+            <param name="guid">The unique identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:GeoCloudAI.Application.Services.CountryService">
+            <summary>
+            This class provides country-related services such as retrieving country information.
+            </summary>
+            <seealso cref="T:GeoCloudAI.Application.Contracts.ICountryService" />
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.CountryService.#ctor(GeoCloudAI.Persistence.Contracts.ICountryRepository,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GeoCloudAI.Application.Services.CountryService"/> class.
+            </summary>
+            <param name="countryRepository">The country repository.</param>
+            <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.CountryService.Get(System.String)">
+            <summary>
+            Gets the specified term.
+            </summary>
+            <param name="term">The term.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.CountryService.GetById(System.Int32)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="countryId">The country identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:GeoCloudAI.Application.Services.ProfileService">
+            <summary>
+            This class provides profile-related services such as adding, updating, deleting, and retrieving profiles.
+            </summary>
+            <seealso cref="T:GeoCloudAI.Application.Contracts.IProfileService" />
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.ProfileService.#ctor(GeoCloudAI.Persistence.Contracts.IProfileRepository,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GeoCloudAI.Application.Services.ProfileService"/> class.
+            </summary>
+            <param name="profileRepository">The profile repository.</param>
+            <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.ProfileService.Add(GeoCloudAI.Application.Dtos.ProfileDto)">
+            <summary>
+            Adds the specified profile dto.
+            </summary>
+            <param name="profileDto">The profile dto.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.ProfileService.Update(GeoCloudAI.Application.Dtos.ProfileDto)">
+            <summary>
+            Updates the specified profile dto.
+            </summary>
+            <param name="profileDto">The profile dto.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.ProfileService.Delete(System.Int32)">
+            <summary>
+            Deletes the specified profile identifier.
+            </summary>
+            <param name="profileId">The profile identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.ProfileService.Get(GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the specified page parameters.
+            </summary>
+            <param name="pageParams">The page parameters.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.ProfileService.GetByAccount(System.Int32,GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the by account.
+            </summary>
+            <param name="accountId">The account identifier.</param>
+            <param name="pageParams">The page parameters.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.ProfileService.GetById(System.Int32)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="profileId">The profile identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="T:GeoCloudAI.Application.Services.UserService">
+            <summary>
+            This class provides user-related services such as adding, updating, deleting, and retrieving users.
+            </summary>
+            <seealso cref="T:GeoCloudAI.Application.Contracts.IUserService" />
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.UserService.#ctor(GeoCloudAI.Persistence.Contracts.IUserRepository,GeoCloudAI.Application.Contracts.IAccountService,GeoCloudAI.Application.Contracts.IProfileService,AutoMapper.IMapper,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GeoCloudAI.Application.Services.UserService"/> class.
+            </summary>
+            <param name="userRepository">The user repository.</param>
+            <param name="accountService">The account service.</param>
+            <param name="profileService">The profile service.</param>
+            <param name="mapper">The mapper.</param>
+            <param name="config">The configuration.</param>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.UserService.Add(GeoCloudAI.Application.Dtos.UserDto)">
+            <summary>
+            Adds the specified user dto.
+            </summary>
+            <param name="userDto">The user dto.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.UserService.Register(GeoCloudAI.Application.Dtos.UserDto)">
+            <summary>
+            Registers the specified user dto.
+            </summary>
+            <param name="userDto">The user dto.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.UserService.Update(GeoCloudAI.Application.Dtos.UserDto)">
+            <summary>
+            Updates the specified user dto.
+            </summary>
+            <param name="userDto">The user dto.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.UserService.Delete(System.Int32)">
+            <summary>
+            Deletes the specified user identifier.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.UserService.Get(GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the specified page parameters.
+            </summary>
+            <param name="pageParams">The page parameters.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.UserService.GetByAccount(System.Int32,GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the by account.
+            </summary>
+            <param name="accountId">The account identifier.</param>
+            <param name="pageParams">The page parameters.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.UserService.GetById(System.Int32)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.UserService.GetByEmail(System.String)">
+            <summary>
+            Gets the by email.
+            </summary>
+            <param name="email">The email.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.UserService.Login(System.String,System.String)">
+            <summary>
+            Logins the specified email.
+            </summary>
+            <param name="email">The email.</param>
+            <param name="password">The password.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.UserService.GenerateToken(GeoCloudAI.Application.Dtos.UserDto)">
+            <summary>
+            Generates the token.
+            </summary>
+            <param name="userDto">The user dto.</param>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+    </members>
+</doc>

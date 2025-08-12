@@ -13,6 +13,9 @@ using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 namespace GeoCloudAI.API
 {
+    /// <summary>
+    /// This class is responsible for configuring the services and the HTTP request pipeline of the application.
+    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -20,9 +23,19 @@ namespace GeoCloudAI.API
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// Gets the configuration.
+        /// </summary>
+        /// <value>
+        /// The configuration.
+        /// </value>
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// Configures the services.]
+        /// This method gets called by the runtime. Use this method to add services to the container.
+        /// </summary>
+        /// <param name="services">The services.</param>
         public void ConfigureServices(IServiceCollection services)
         {   
 
@@ -44,7 +57,9 @@ namespace GeoCloudAI.API
             services.AddCors();
             services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "GeoCloudAI.API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "GeoCloudAI.API", Version = "v1", Description = "GeoCloudAI.API" });
+                options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "GeoCloudAI.API.xml"), true);
+
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = @"JWT Authorization header using Bearer. Ex: 'Bearer 1234abcdef'",
@@ -128,7 +143,12 @@ namespace GeoCloudAI.API
             }
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// Configures the specified application.
+        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app">The application.</param>
+        /// <param name="env">The env.</param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
