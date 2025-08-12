@@ -6,19 +6,33 @@ using GeoCloudAI.Persistence.Models;
 
 namespace GeoCloudAI.Application.Services
 {
+    /// <summary>
+    /// This class provides profile-related services such as adding, updating, deleting, and retrieving profiles.
+    /// </summary>
+    /// <seealso cref="GeoCloudAI.Application.Contracts.IProfileService" />
     public class ProfileService: IProfileService
     {
         private readonly IProfileRepository _profileRepository;
 
         private readonly IMapper _mapper;
-        
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProfileService"/> class.
+        /// </summary>
+        /// <param name="profileRepository">The profile repository.</param>
+        /// <param name="mapper">The mapper.</param>
         public ProfileService(IProfileRepository profileRepository,
                            IMapper mapper)
         {
             _profileRepository = profileRepository;
             _mapper = mapper;
         }
-
+        /// <summary>
+        /// Adds the specified profile dto.
+        /// </summary>
+        /// <param name="profileDto">The profile dto.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<ProfileDto> Add(ProfileDto profileDto) 
         {
             try
@@ -40,7 +54,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             } 
         }
-
+        /// <summary>
+        /// Updates the specified profile dto.
+        /// </summary>
+        /// <param name="profileDto">The profile dto.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<ProfileDto> Update(ProfileDto profileDto) 
         {
             try
@@ -65,7 +84,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             } 
         }
-
+        /// <summary>
+        /// Deletes the specified profile identifier.
+        /// </summary>
+        /// <param name="profileId">The profile identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<int> Delete(int profileId) 
         {
             try
@@ -77,7 +101,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             } 
         }
-
+        /// <summary>
+        /// Gets the specified page parameters.
+        /// </summary>
+        /// <param name="pageParams">The page parameters.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<PageList<ProfileDto>> Get(PageParams pageParams) 
         {
             try
@@ -98,7 +127,13 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             }   
         }
-
+        /// <summary>
+        /// Gets the by account.
+        /// </summary>
+        /// <param name="accountId">The account identifier.</param>
+        /// <param name="pageParams">The page parameters.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<PageList<ProfileDto>> GetByAccount(int accountId, PageParams pageParams) 
         {
             try
@@ -118,7 +153,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             }   
         }
-
+        /// <summary>
+        /// Gets the by identifier.
+        /// </summary>
+        /// <param name="profileId">The profile identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<ProfileDto> GetById(int profileId) 
         {
             try

@@ -1,0 +1,290 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GeoCloudAI.API</name>
+    </assembly>
+    <members>
+        <member name="T:GeoCloudAI.API.Controllers.AccountController">
+            <summary>
+            This controller is responsible for managing accounts.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.AccountController.#ctor(GeoCloudAI.Application.Contracts.IAccountService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GeoCloudAI.API.Controllers.AccountController"/> class.
+            </summary>
+            <param name="accountService">The account service.</param>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.AccountController.Add(GeoCloudAI.Application.Dtos.AccountDto)">
+            <summary>
+            Adds the specified account dto.
+            </summary>
+            <param name="accountDto">The account dto.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.AccountController.Update(GeoCloudAI.Application.Dtos.AccountDto)">
+            <summary>
+            Updates the specified account dto.
+            </summary>
+            <param name="accountDto">The account dto.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.AccountController.Delete(System.Int32)">
+            <summary>
+            Deletes the specified identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.AccountController.Get(GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the specified page parameters.
+            </summary>
+            <param name="pageParams">The page parameters.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.AccountController.GetById(System.Int32)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="T:GeoCloudAI.API.Controllers.CountryController">
+            <summary>
+            This controller is responsible for managing countries.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.CountryController.#ctor(GeoCloudAI.Application.Contracts.ICountryService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GeoCloudAI.API.Controllers.CountryController"/> class.
+            </summary>
+            <param name="countryService">The country service.</param>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.CountryController.Get(System.String)">
+            <summary>
+            Gets the specified term.
+            </summary>
+            <param name="term">The term.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.CountryController.GetById(System.Int32)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="T:GeoCloudAI.API.Controllers.ProfileController">
+            <summary>
+            This controller is responsible for managing user profiles.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.ProfileController.#ctor(GeoCloudAI.Application.Contracts.IProfileService,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GeoCloudAI.API.Controllers.ProfileController"/> class.
+            </summary>
+            <param name="profileService">The profile service.</param>
+            <param name="hostEnvironment">The host environment.</param>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.ProfileController.Add(GeoCloudAI.Application.Dtos.ProfileDto)">
+            <summary>
+            Adds the specified profile dto.
+            </summary>
+            <param name="profileDto">The profile dto.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.ProfileController.UploadImage(System.String)">
+            <summary>
+            Uploads the image.
+            </summary>
+            <param name="pathName">Name of the path.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.ProfileController.Update(GeoCloudAI.Application.Dtos.ProfileDto)">
+            <summary>
+            Updates the specified profile dto.
+            </summary>
+            <param name="profileDto">The profile dto.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.ProfileController.Delete(System.Int32)">
+            <summary>
+            Deletes the specified identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.ProfileController.Get(GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the specified page parameters.
+            </summary>
+            <param name="pageParams">The page parameters.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.ProfileController.GetByAccount(System.Int32,GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the by account.
+            </summary>
+            <param name="accountId">The account identifier.</param>
+            <param name="pageParams">The page parameters.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.ProfileController.GetById(System.Int32)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="T:GeoCloudAI.API.Controllers.UserController">
+            <summary>
+            This class is responsible for handling user-related operations.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.ControllerBase" />
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.UserController.#ctor(GeoCloudAI.Application.Contracts.IUserService,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GeoCloudAI.API.Controllers.UserController"/> class.
+            </summary>
+            <param name="userService">The user service.</param>
+            <param name="hostEnvironment">The host environment.</param>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.UserController.Add(GeoCloudAI.Application.Dtos.UserDto)">
+            <summary>
+            Adds the specified user dto.
+            </summary>
+            <param name="userDto">The user dto.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.UserController.Register(GeoCloudAI.Application.Dtos.UserDto)">
+            <summary>
+            Registers the specified user dto.
+            </summary>
+            <param name="userDto">The user dto.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.UserController.UploadImage(System.String)">
+            <summary>
+            Uploads the image.
+            </summary>
+            <param name="pathName">Name of the path.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.UserController.Update(GeoCloudAI.Application.Dtos.UserDto)">
+            <summary>
+            Updates the specified user dto.
+            </summary>
+            <param name="userDto">The user dto.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.UserController.Delete(System.Int32)">
+            <summary>
+            Deletes the specified identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.UserController.Get(GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the specified page parameters.
+            </summary>
+            <param name="pageParams">The page parameters.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.UserController.GetByAccount(System.Int32,GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the by account.
+            </summary>
+            <param name="accountId">The account identifier.</param>
+            <param name="pageParams">The page parameters.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.UserController.GetById(System.Int32)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.UserController.GetByEmail(System.String)">
+            <summary>
+            Gets the by email.
+            </summary>
+            <param name="email">The email.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.UserController.Login(System.String,System.String)">
+            <summary>
+            Logins the specified email.
+            </summary>
+            <param name="email">The email.</param>
+            <param name="password">The password.</param>
+            <returns>OK[200](with result or Exception message)</returns>
+        </member>
+        <member name="T:GeoCloudAI.API.Extensions.Pagination">
+            <summary>
+            This static class provides an extension method to add pagination headers to an HTTP response.
+            </summary>
+        </member>
+        <member name="M:GeoCloudAI.API.Extensions.Pagination.AddPagination(Microsoft.AspNetCore.Http.HttpResponse,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Adds the pagination.
+            </summary>
+            <param name="response">The response.</param>
+            <param name="totalCount">The total count.</param>
+            <param name="currentPage">The current page.</param>
+            <param name="pageSize">Size of the page.</param>
+            <param name="totalPages">The total pages.</param>
+        </member>
+        <member name="T:GeoCloudAI.API.Program">
+            <summary>
+            This class is the entry point of the GeoCloudAI API application.
+            </summary>
+        </member>
+        <member name="M:GeoCloudAI.API.Program.Main(System.String[])">
+            <summary>
+            Defines the entry point of the application.
+            </summary>
+            <param name="args">The arguments.</param>
+        </member>
+        <member name="M:GeoCloudAI.API.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Creates the host builder.
+            </summary>
+            <param name="args">The arguments.</param>
+            <returns></returns>
+        </member>
+        <member name="T:GeoCloudAI.API.Startup">
+            <summary>
+            This class is responsible for configuring the services and the HTTP request pipeline of the application.
+            </summary>
+        </member>
+        <member name="P:GeoCloudAI.API.Startup.Configuration">
+            <summary>
+            Gets the configuration.
+            </summary>
+            <value>
+            The configuration.
+            </value>
+        </member>
+        <member name="M:GeoCloudAI.API.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configures the services.]
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:GeoCloudAI.API.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Configures the specified application.
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
+        </member>
+    </members>
+</doc>

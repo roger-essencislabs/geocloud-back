@@ -13,6 +13,10 @@ using Microsoft.Extensions.Configuration;
 
 namespace GeoCloudAI.Application.Services
 {
+    /// <summary>
+    /// This class provides user-related services such as adding, updating, deleting, and retrieving users.
+    /// </summary>
+    /// <seealso cref="GeoCloudAI.Application.Contracts.IUserService" />
     public class UserService: IUserService
     {
         private readonly IUserRepository _userRepository;
@@ -21,7 +25,14 @@ namespace GeoCloudAI.Application.Services
         private readonly IMapper _mapper;
         private readonly IConfiguration _config;
         public readonly  SymmetricSecurityKey _key;
-        
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserService"/> class.
+        /// </summary>
+        /// <param name="userRepository">The user repository.</param>
+        /// <param name="accountService">The account service.</param>
+        /// <param name="profileService">The profile service.</param>
+        /// <param name="mapper">The mapper.</param>
+        /// <param name="config">The configuration.</param>
         public UserService(IUserRepository userRepository,
                            IAccountService accountService,
                            IProfileService profileService, 
@@ -35,7 +46,12 @@ namespace GeoCloudAI.Application.Services
             _config = config;
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["TokenKey"].ToString()));
         }
-
+        /// <summary>
+        /// Adds the specified user dto.
+        /// </summary>
+        /// <param name="userDto">The user dto.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<UserDto> Add(UserDto userDto) 
         {
             try
@@ -57,7 +73,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             } 
         }
-
+        /// <summary>
+        /// Registers the specified user dto.
+        /// </summary>
+        /// <param name="userDto">The user dto.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<string> Register(UserDto userDto) 
         {
             try
@@ -112,7 +133,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             } 
         }
-
+        /// <summary>
+        /// Updates the specified user dto.
+        /// </summary>
+        /// <param name="userDto">The user dto.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<UserDto> Update(UserDto userDto) 
         {
             try
@@ -137,7 +163,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             } 
         }
-
+        /// <summary>
+        /// Deletes the specified user identifier.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<int> Delete(int userId) 
         {
             try
@@ -149,7 +180,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             } 
         }
-
+        /// <summary>
+        /// Gets the specified page parameters.
+        /// </summary>
+        /// <param name="pageParams">The page parameters.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<PageList<UserDto>> Get(PageParams pageParams) 
         {
             try
@@ -170,7 +206,13 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             }   
         }
-
+        /// <summary>
+        /// Gets the by account.
+        /// </summary>
+        /// <param name="accountId">The account identifier.</param>
+        /// <param name="pageParams">The page parameters.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<PageList<UserDto>> GetByAccount(int accountId, PageParams pageParams) 
         {
             try
@@ -191,7 +233,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             }   
         }
-
+        /// <summary>
+        /// Gets the by identifier.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<UserDto> GetById(int userId) 
         {
             try
@@ -207,7 +254,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             }  
         }
-
+        /// <summary>
+        /// Gets the by email.
+        /// </summary>
+        /// <param name="email">The email.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<UserDto> GetByEmail(string email) 
         {
             try
@@ -223,8 +275,13 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             }  
         }
-
-
+        /// <summary>
+        /// Logins the specified email.
+        /// </summary>
+        /// <param name="email">The email.</param>
+        /// <param name="password">The password.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<UserDto> Login(string email, string password) 
         {
             try
@@ -240,7 +297,12 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             }  
         }
-
+        /// <summary>
+        /// Generates the token.
+        /// </summary>
+        /// <param name="userDto">The user dto.</param>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<string> GenerateToken(UserDto userDto)
         {
             try
@@ -263,7 +325,6 @@ namespace GeoCloudAI.Application.Services
             {
                 throw new Exception(ex.Message);
             }  
-
         }
     }
 }
