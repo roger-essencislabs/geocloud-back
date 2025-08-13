@@ -19,4 +19,8 @@
     <ProjectReference Include="..\GeoCloudAI.Application\GeoCloudAI.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
 </Project>
