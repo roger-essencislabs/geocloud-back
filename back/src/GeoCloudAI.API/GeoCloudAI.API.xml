@@ -217,12 +217,11 @@
             <param name="email">The email.</param>
             <returns>OK[200](with result or Exception message)</returns>
         </member>
-        <member name="M:GeoCloudAI.API.Controllers.UserController.Login(System.String,System.String)">
+        <member name="M:GeoCloudAI.API.Controllers.UserController.Login(GeoCloudAI.Application.Dtos.LoginRequest)">
             <summary>
-            Logins the specified email.
+            Logins the specified login.
             </summary>
-            <param name="email">The email.</param>
-            <param name="password">The password.</param>
+            <param name="login">The login.</param>
             <returns>OK[200](with result or Exception message)</returns>
         </member>
         <member name="T:GeoCloudAI.API.Extensions.Pagination">
