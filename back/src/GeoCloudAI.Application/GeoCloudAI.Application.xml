@@ -288,6 +288,27 @@
             The acronym3.
             </value>
         </member>
+        <member name="T:GeoCloudAI.Application.Dtos.LoginRequest">
+            <summary>
+            Class representing a login request with username and password.
+            </summary>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.LoginRequest.Email">
+            <summary>
+            Gets or sets the email.
+            </summary>
+            <value>
+            The email.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.LoginRequest.Password">
+            <summary>
+            Gets or sets the password.
+            </summary>
+            <value>
+            The password.
+            </value>
+        </member>
         <member name="T:GeoCloudAI.Application.Dtos.ProfileDto">
             <summary>
             This class represents a Data Transfer Object (DTO) for a profile.

@@ -234,20 +234,21 @@ namespace GeoCloudAI.API.Controllers
             }
         }
         /// <summary>
-        /// Logins the specified email.
+        /// Logins the specified login.
         /// </summary>
-        /// <param name="email">The email.</param>
-        /// <param name="password">The password.</param>
+        /// <param name="login">The login.</param>
         /// <returns>OK[200](with result or Exception message)</returns>
-        [HttpGet]
+        [HttpPost]
         [Route("login")]
         [AllowAnonymous]
-        public async Task<ActionResult<UserDto>> Login(string email, string password)
+        public async Task<ActionResult<UserDto>> Login([FromBody] LoginRequest login)
         {
             try
             {
-                var result = await _userService.Login(email, password);
-                if(result == null) return NotFound("No user found");
+                var result = await _userService.Login(login.Email, login.Password);
+                if(result == null) 
+                    return NotFound("No user found");
+
                 result.Token = _userService.GenerateToken(result).Result;
                 result.Password = "";
                 return Ok(result);
