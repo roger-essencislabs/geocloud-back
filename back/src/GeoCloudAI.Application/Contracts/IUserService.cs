@@ -26,8 +26,17 @@ namespace GeoCloudAI.Application.Contracts
         /// <param name="userDto">The user dto.</param>
         /// <returns></returns>
         Task<UserDto> Update(UserDto userDto);
+        /// <summary>
+        /// Deletes the specified user identifier.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <returns></returns>
         Task<int>     Delete(int userId);
-
+        /// <summary>
+        /// Gets the specified page parameters.
+        /// </summary>
+        /// <param name="pageParams">The page parameters.</param>
+        /// <returns></returns>
         Task<PageList<UserDto>> Get(PageParams pageParams);
         /// <summary>
         /// Gets the by account.
@@ -36,6 +45,11 @@ namespace GeoCloudAI.Application.Contracts
         /// <param name="pageParams">The page parameters.</param>
         /// <returns></returns>
         Task<PageList<UserDto>> GetByAccount(int accountId, PageParams pageParams);
+        /// <summary>
+        /// Gets the by identifier.
+        /// </summary>
+        /// <param name="userId">The user identifier.</param>
+        /// <returns></returns>
         Task<UserDto> GetById(int userId);
         /// <summary>
         /// Gets the by email.

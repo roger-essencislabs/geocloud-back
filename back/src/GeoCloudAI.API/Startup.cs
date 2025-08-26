@@ -18,6 +18,10 @@ namespace GeoCloudAI.API
     /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Startup"/> class.
+        /// </summary>
+        /// <param name="configuration">The configuration.</param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -88,6 +92,7 @@ namespace GeoCloudAI.API
             });
 
             services.AddScoped<DbSession>();
+            services.AddScoped<DbSessionLIMS>();
 
             //Token ***********************************************************
 
@@ -126,6 +131,9 @@ namespace GeoCloudAI.API
 
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IAccountRepository, AccountRepository>();
+
+            services.AddScoped<IInvoiceService, InvoiceService>();
+            services.AddScoped<IInvoiceRepository, InvoiceRepository>();
 
             services.AddScoped<ICountryService, CountryService>();
             services.AddScoped<ICountryRepository, CountryRepository>();

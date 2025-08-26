@@ -70,6 +70,17 @@
             <param name="countryId">The country identifier.</param>
             <returns></returns>
         </member>
+        <member name="T:GeoCloudAI.Application.Contracts.IInvoiceService">
+            <summary>
+            Class representing invoice-related operations.
+            </summary>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IInvoiceService.Get">
+            <summary>
+            Gets this instance.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:GeoCloudAI.Application.Contracts.IProfileService">
             <summary>
             This interface defines the contract for profile-related operations.
@@ -144,12 +155,33 @@
             <param name="userDto">The user dto.</param>
             <returns></returns>
         </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IUserService.Delete(System.Int32)">
+            <summary>
+            Deletes the specified user identifier.
+            </summary>
+            <param name="userId">The user identifier.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IUserService.Get(GeoCloudAI.Persistence.Models.PageParams)">
+            <summary>
+            Gets the specified page parameters.
+            </summary>
+            <param name="pageParams">The page parameters.</param>
+            <returns></returns>
+        </member>
         <member name="M:GeoCloudAI.Application.Contracts.IUserService.GetByAccount(System.Int32,GeoCloudAI.Persistence.Models.PageParams)">
             <summary>
             Gets the by account.
             </summary>
             <param name="accountId">The account identifier.</param>
             <param name="pageParams">The page parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IUserService.GetById(System.Int32)">
+            <summary>
+            Gets the by identifier.
+            </summary>
+            <param name="userId">The user identifier.</param>
             <returns></returns>
         </member>
         <member name="M:GeoCloudAI.Application.Contracts.IUserService.GetByEmail(System.String)">
@@ -286,6 +318,51 @@
             </summary>
             <value>
             The acronym3.
+            </value>
+        </member>
+        <member name="T:GeoCloudAI.Application.Dtos.InvoiceDto">
+            <summary>
+            Class representing an invoice data transfer object (DTO).
+            </summary>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.InvoiceDto.Id">
+            <summary>
+            Gets or sets the identifier.
+            </summary>
+            <value>
+            The identifier.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.InvoiceDto.Invoice">
+            <summary>
+            Gets or sets the invoice.
+            </summary>
+            <value>
+            The invoice.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.InvoiceDto.Amount">
+            <summary>
+            Gets or sets the amount.
+            </summary>
+            <value>
+            The amount.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.InvoiceDto.Date">
+            <summary>
+            Gets or sets the date.
+            </summary>
+            <value>
+            The date.
+            </value>
+        </member>
+        <member name="P:GeoCloudAI.Application.Dtos.InvoiceDto.Status">
+            <summary>
+            Gets or sets the status.
+            </summary>
+            <value>
+            The status.
             </value>
         </member>
         <member name="T:GeoCloudAI.Application.Dtos.LoginRequest">
@@ -612,6 +689,19 @@
             <returns></returns>
             <exception cref="T:System.Exception"></exception>
         </member>
+        <member name="T:GeoCloudAI.Application.Services.InvoiceService">
+            <summary>
+            Class InvoiceService
+            </summary>
+            <seealso cref="T:GeoCloudAI.Application.Contracts.IInvoiceService" />
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.InvoiceService.#ctor(GeoCloudAI.Persistence.Contracts.IInvoiceRepository,AutoMapper.IMapper)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GeoCloudAI.Application.Services.InvoiceService"/> class.
+            </summary>
+            <param name="invoiceyRepository">The invoicey repository.</param>
+            <param name="mapper">The mapper.</param>
+        </member>
         <member name="T:GeoCloudAI.Application.Services.ProfileService">
             <summary>
             This class provides profile-related services such as adding, updating, deleting, and retrieving profiles.
@@ -679,6 +769,11 @@
             This class provides user-related services such as adding, updating, deleting, and retrieving users.
             </summary>
             <seealso cref="T:GeoCloudAI.Application.Contracts.IUserService" />
+        </member>
+        <member name="F:GeoCloudAI.Application.Services.UserService._key">
+            <summary>
+            The key
+            </summary>
         </member>
         <member name="M:GeoCloudAI.Application.Services.UserService.#ctor(GeoCloudAI.Persistence.Contracts.IUserRepository,GeoCloudAI.Application.Contracts.IAccountService,GeoCloudAI.Application.Contracts.IProfileService,AutoMapper.IMapper,Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>

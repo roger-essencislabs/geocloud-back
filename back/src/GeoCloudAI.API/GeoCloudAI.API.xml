@@ -77,6 +77,24 @@
             <param name="id">The identifier.</param>
             <returns>OK[200](with result or Exception message)</returns>
         </member>
+        <member name="T:GeoCloudAI.API.Controllers.InvoicesController">
+            <summary>
+            Class InvoicesController.
+            </summary>
+            <seealso cref="T:Microsoft.AspNetCore.Mvc.Controller" />
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.InvoicesController.#ctor(GeoCloudAI.Application.Contracts.IInvoiceService)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GeoCloudAI.API.Controllers.InvoicesController"/> class.
+            </summary>
+            <param name="invoiceService">The invoice service.</param>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.InvoicesController.GetInvoices">
+            <summary>
+            Gets the invoices.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:GeoCloudAI.API.Controllers.ProfileController">
             <summary>
             This controller is responsible for managing user profiles.
@@ -261,6 +279,12 @@
             <summary>
             This class is responsible for configuring the services and the HTTP request pipeline of the application.
             </summary>
+        </member>
+        <member name="M:GeoCloudAI.API.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:GeoCloudAI.API.Startup"/> class.
+            </summary>
+            <param name="configuration">The configuration.</param>
         </member>
         <member name="P:GeoCloudAI.API.Startup.Configuration">
             <summary>

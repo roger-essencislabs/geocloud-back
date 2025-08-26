@@ -24,6 +24,9 @@ namespace GeoCloudAI.Application.Services
         private readonly IProfileService _profileService;
         private readonly IMapper _mapper;
         private readonly IConfiguration _config;
+        /// <summary>
+        /// The key
+        /// </summary>
         public readonly  SymmetricSecurityKey _key;
         /// <summary>
         /// Initializes a new instance of the <see cref="UserService"/> class.
