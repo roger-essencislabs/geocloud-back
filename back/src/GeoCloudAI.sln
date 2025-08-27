@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoCloudAI.Application", "G
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeoCloudAI.API", "GeoCloudAI.API\GeoCloudAI.API.csproj", "{B627EFAB-F533-4F03-9799-220BBB694395}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProjectGeocloud", "TestProjectGeocloud\TestProjectGeocloud.csproj", "{C707690B-3A55-4274-A1C7-15126542245C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,8 +35,15 @@ Global
 		{B627EFAB-F533-4F03-9799-220BBB694395}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B627EFAB-F533-4F03-9799-220BBB694395}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B627EFAB-F533-4F03-9799-220BBB694395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C707690B-3A55-4274-A1C7-15126542245C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C707690B-3A55-4274-A1C7-15126542245C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C707690B-3A55-4274-A1C7-15126542245C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C707690B-3A55-4274-A1C7-15126542245C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4EDC7646-047D-4A72-9C0A-2563A5A2FE10}
 	EndGlobalSection
 EndGlobal
