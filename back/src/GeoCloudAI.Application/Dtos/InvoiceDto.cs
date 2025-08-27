@@ -1,4 +1,6 @@
-﻿namespace GeoCloudAI.Application.Dtos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace GeoCloudAI.Application.Dtos
 {
     /// <summary>
     /// Class representing an invoice data transfer object (DTO).
@@ -11,7 +13,8 @@
         /// <value>
         /// The identifier.
         /// </value>
-        public string Id { get; set; }
+        [Required(ErrorMessage = "{0} is required") ]
+        public int Id { get; set; }
         /// <summary>
         /// Gets or sets the invoice.
         /// </summary>
@@ -25,14 +28,14 @@
         /// <value>
         /// The amount.
         /// </value>
-        public string Amount { get; set; }
+        public decimal Amount { get; set; }
         /// <summary>
         /// Gets or sets the date.
         /// </summary>
         /// <value>
         /// The date.
         /// </value>
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         /// <summary>
         /// Gets or sets the status.
         /// </summary>

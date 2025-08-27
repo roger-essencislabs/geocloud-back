@@ -8,7 +8,7 @@
         /// <value>
         /// The identifier.
         /// </value>
-        public string Id { get; set; }
+        public int Id { get; set; }
         /// <summary>
         /// Gets or sets the invoice.
         /// </summary>
@@ -22,14 +22,14 @@
         /// <value>
         /// The amount.
         /// </value>
-        public string Amount { get; set; }
+        public decimal Amount { get; set; }
         /// <summary>
         /// Gets or sets the date.
         /// </summary>
         /// <value>
         /// The date.
         /// </value>
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         /// <summary>
         /// Gets or sets the status.
         /// </summary>
