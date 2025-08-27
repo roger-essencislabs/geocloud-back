@@ -32,19 +32,6 @@ namespace GeoCloudAI.API.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> GetInvoices()
         {
-            /*
-            var invoices = new List<InvoiceData>
-            {
-                new InvoiceData { Id = "01", Invoice = "Basic Plan", Amount = "$860", Date = "Nov 22, 2021", Status = "Subscribed" },
-                new InvoiceData { Id = "02", Invoice = "Premium Plan", Amount = "$1200", Date = "Nov 10, 2021", Status = "Unsubscribed" },
-                new InvoiceData { Id = "03", Invoice = "Basic Plan", Amount = "$860", Date = "Nov 19, 2021", Status = "Subscribed" },
-                new InvoiceData { Id = "04", Invoice = "Corporate Plan", Amount = "$1599", Date = "Nov 22, 2021", Status = "Subscribed" },
-                new InvoiceData { Id = "05", Invoice = "Teste Plan", Amount = "$1000", Date = "Nov 22, 2025", Status = "Subscribed" }
-            };
-
-            return Ok(invoices);
-            */
-
             try
             {
                 var result = await _invoiceService.Get();
