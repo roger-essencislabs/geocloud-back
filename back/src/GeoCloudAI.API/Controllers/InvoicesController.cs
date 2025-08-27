@@ -42,7 +42,7 @@ namespace GeoCloudAI.API.Controllers
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                   $"Error when trying to recover countries. Error: {ex.Message}");
+                   $"Error when trying to recover invoices. Error: {ex.Message}");
             }
         }
     }
