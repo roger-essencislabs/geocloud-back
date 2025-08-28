@@ -12,5 +12,11 @@ namespace GeoCloudAI.Application.Contracts
         /// </summary>
         /// <returns></returns>
         Task<List<InvoiceDto>> Get();
+        /// <summary>
+        /// Deletes the specified identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>Number rows affected</returns>
+        Task<int> Delete(int id);
     }
 }

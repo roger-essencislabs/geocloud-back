@@ -81,6 +81,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IInvoiceService.Delete(System.Int32)">
+            <summary>
+            Deletes the specified identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>Number rows affected</returns>
+        </member>
         <member name="T:GeoCloudAI.Application.Contracts.IProfileService">
             <summary>
             This interface defines the contract for profile-related operations.
@@ -695,12 +702,37 @@
             </summary>
             <seealso cref="T:GeoCloudAI.Application.Contracts.IInvoiceService" />
         </member>
+        <member name="F:GeoCloudAI.Application.Services.InvoiceService._invoiceRepository">
+            <summary>
+            The invoice repository
+            </summary>
+        </member>
+        <member name="F:GeoCloudAI.Application.Services.InvoiceService._mapper">
+            <summary>
+            The mapper. Map Class (Invoices) > Dto (InvoiceDto)
+            </summary>
+        </member>
         <member name="M:GeoCloudAI.Application.Services.InvoiceService.#ctor(GeoCloudAI.Persistence.Contracts.IInvoiceRepository,AutoMapper.IMapper)">
             <summary>
             Initializes a new instance of the <see cref="T:GeoCloudAI.Application.Services.InvoiceService"/> class.
             </summary>
             <param name="invoiceyRepository">The invoicey repository.</param>
             <param name="mapper">The mapper.</param>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.InvoiceService.Get">
+            <summary>
+            Gets Invoice DTO.
+            </summary>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.InvoiceService.Delete(System.Int32)">
+            <summary>
+            Deletes the specified identifier.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>Number os row affected</returns>
+            <exception cref="T:System.Exception"></exception>
         </member>
         <member name="T:GeoCloudAI.Application.Services.ProfileService">
             <summary>

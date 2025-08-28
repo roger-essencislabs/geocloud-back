@@ -45,6 +45,29 @@ namespace GeoCloudAI.API.Controllers
                    $"Error when trying to recover invoices. Error: {ex.Message}");
             }
         }
+        /// <summary>
+        /// Deletes the invoices.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>Number records affected</returns>
+        [HttpDelete]
+        [Route("DeleteInvoices/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> DeleteInvoices(int id)
+        {
+            try
+            {
+                var result = await _invoiceService.Delete(id);
+                if (result == 0) return NotFound("No invoices found");
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                   $"Error when trying to recover invoices. Error: {ex.Message}");
+            }
+        }
     }
 }
 

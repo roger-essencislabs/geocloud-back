@@ -95,6 +95,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:GeoCloudAI.API.Controllers.InvoicesController.DeleteInvoices(System.Int32)">
+            <summary>
+            Deletes the invoices.
+            </summary>
+            <param name="id">The identifier.</param>
+            <returns>Number records affected</returns>
+        </member>
         <member name="T:GeoCloudAI.API.Controllers.ProfileController">
             <summary>
             This controller is responsible for managing user profiles.

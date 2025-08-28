@@ -13,8 +13,14 @@ namespace GeoCloudAI.Application.Services
     /// <seealso cref="GeoCloudAI.Application.Contracts.IInvoiceService" />
     public class InvoiceService : IInvoiceService
     {
+        /// <summary>
+        /// The invoice repository
+        /// </summary>
         private readonly IInvoiceRepository _invoiceRepository;
 
+        /// <summary>
+        /// The mapper. Map Class (Invoices) > Dto (InvoiceDto)
+        /// </summary>
         private readonly IMapper _mapper;
 
         /// <summary>
@@ -29,10 +35,13 @@ namespace GeoCloudAI.Application.Services
             _mapper = mapper;
         }
 
-
+        /// <summary>
+        /// Gets Invoice DTO.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="System.Exception"></exception>
         public async Task<List<InvoiceDto>> Get()
         {
-            
             try
             {
                 var invoices = await _invoiceRepository.Get();
@@ -45,7 +54,24 @@ namespace GeoCloudAI.Application.Services
             {
                 throw new Exception(ex.Message);
             }
-            
+        }
+        /// <summary>
+        /// Deletes the specified identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>Number os row affected</returns>
+        /// <exception cref="System.Exception"></exception>
+        public async Task<int> Delete(int id)
+        {
+            try
+            {
+                var numRegAffected = await _invoiceRepository.Delete(id);
+                return numRegAffected;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
