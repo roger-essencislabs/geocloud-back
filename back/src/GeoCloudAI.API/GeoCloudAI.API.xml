@@ -93,7 +93,7 @@
             <summary>
             Gets the invoices.
             </summary>
-            <returns></returns>
+            <returns>InvoiceDto</returns>
         </member>
         <member name="M:GeoCloudAI.API.Controllers.InvoicesController.DeleteInvoices(System.Int32)">
             <summary>
@@ -101,6 +101,13 @@
             </summary>
             <param name="id">The identifier.</param>
             <returns>Number records affected</returns>
+        </member>
+        <member name="M:GeoCloudAI.API.Controllers.InvoicesController.UpdateInvoices(GeoCloudAI.Application.Dtos.InvoiceDto)">
+            <summary>
+            Updates the invoices.
+            </summary>
+            <param name="invoiceDto">The invoice dto.</param>
+            <returns>The invoice dto</returns>
         </member>
         <member name="T:GeoCloudAI.API.Controllers.ProfileController">
             <summary>

@@ -66,5 +66,58 @@ namespace GeoCloudAI.Persistence.Repositories
                 throw new Exception(ex.Message);
             }
         }
+        /// <summary>
+        /// Gets the by identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>
+        /// Invoice
+        /// </returns>
+        /// <exception cref="System.NotImplementedException"></exception>
+        public async Task<Invoices> GetById(int id)
+        {
+            try
+            {
+                var conn = _db.Connection;
+
+                string query = @"SELECT * FROM INVOICES WHERE ID = " + id;
+
+                var invoices = (await conn.QueryAsync<Invoices>(sql: query));
+
+                if (invoices.Count() == 0) return null;
+                return invoices.First();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Updates the specified invoice.
+        /// </summary>
+        /// <param name="invoice">The invoice.</param>
+        /// <returns>Number columns affected</returns>
+        /// <exception cref="System.Exception"></exception>
+        public async Task<int> Update(Invoices invoice)
+        {
+            try
+            {
+                var conn = _db.Connection;
+                if (invoice.Id == 0) { return 0; }
+                string command = @"UPDATE INVOICES SET 
+                                    id      = @id,
+                                    invoice = @invoice,
+                                    amount  = @amount,
+                                    date    = @date,
+                                    status  = @status
+                                    WHERE id= @id";
+                var result = await conn.ExecuteAsync(sql: command, param: invoice);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

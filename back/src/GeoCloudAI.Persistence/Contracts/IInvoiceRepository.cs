@@ -18,5 +18,18 @@ namespace GeoCloudAI.Persistence.Contracts
         /// <param name="id">The identifier.</param>
         /// <returns>Number rows affected</returns>
         Task<int> Delete(int id);
+        /// <summary>
+        /// Gets the by identifier.
+        /// </summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>Invoice</returns>
+        Task<Invoices> GetById(int id);
+
+        /// <summary>
+        /// Updates the specified invoice.
+        /// </summary>
+        /// <param name="invoice">The invoice.</param>
+        /// <returns>Number columns affected</returns>
+        Task<int> Update(Invoices invoice);
     }
 }

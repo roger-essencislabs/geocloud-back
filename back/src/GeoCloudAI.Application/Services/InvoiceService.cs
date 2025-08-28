@@ -73,5 +73,42 @@ namespace GeoCloudAI.Application.Services
                 throw new Exception(ex.Message);
             }
         }
+        /// <summary>
+        /// Updates the specified invoice.
+        /// </summary>
+        /// <param name="invoice">The invoice.</param>
+        /// <returns>
+        /// The invoice
+        /// </returns>
+        /// <exception cref="System.Exception"></exception>
+        public async Task<InvoiceDto> Update(InvoiceDto invoice)
+        {
+            try
+            {
+                //Check if exist Profile
+                var existInvoice = await _invoiceRepository.GetById(invoice.Id);
+                if (existInvoice == null) 
+                    return null;
+                //Map Dto > Class
+                var updateInvoice = _mapper.Map<Domain.Classes.Invoices>(invoice);
+                //Update Profile
+               
+                var resultCode = await _invoiceRepository.Update(updateInvoice); // resultCode = "0" or "1"
+                if (resultCode == 0) 
+                    return null;
+                //Get Updated Invoice
+                var result = await _invoiceRepository.GetById(updateInvoice.Id);
+                if (result == null) 
+                    return null;
+                //Map Class > Dto
+                var resultDto = _mapper.Map<InvoiceDto>(result);
+                
+                return resultDto;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

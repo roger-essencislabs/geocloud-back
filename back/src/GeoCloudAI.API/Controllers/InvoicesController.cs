@@ -1,4 +1,7 @@
 ﻿using GeoCloudAI.Application.Contracts;
+using GeoCloudAI.Application.Dtos;
+using GeoCloudAI.Application.Services;
+using GeoCloudAI.Domain.Classes;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,7 +29,7 @@ namespace GeoCloudAI.API.Controllers
         /// <summary>
         /// Gets the invoices.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>InvoiceDto</returns>
         [HttpGet]
         [Route("GetInvoices")]
         [AllowAnonymous]
@@ -66,6 +69,26 @@ namespace GeoCloudAI.API.Controllers
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
                    $"Error when trying to recover invoices. Error: {ex.Message}");
+            }
+        }
+        /// <summary>
+        /// Updates the invoices.
+        /// </summary>
+        /// <param name="invoiceDto">The invoice dto.</param>
+        /// <returns>The invoice dto</returns>
+        [HttpPut]
+        [Route("UpdateInvoices")]
+        public async Task<IActionResult> UpdateInvoices(InvoiceDto invoiceDto)
+        {
+            try
+            {
+                var result = await _invoiceService.Update(invoiceDto);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                   $"Error when trying to update profile. Error: {ex.Message}");
             }
         }
     }

@@ -88,6 +88,13 @@
             <param name="id">The identifier.</param>
             <returns>Number rows affected</returns>
         </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IInvoiceService.Update(GeoCloudAI.Application.Dtos.InvoiceDto)">
+            <summary>
+            Updates the specified invoice.
+            </summary>
+            <param name="invoice">The invoice.</param>
+            <returns>The invoice</returns>
+        </member>
         <member name="T:GeoCloudAI.Application.Contracts.IProfileService">
             <summary>
             This interface defines the contract for profile-related operations.
@@ -732,6 +739,16 @@
             </summary>
             <param name="id">The identifier.</param>
             <returns>Number os row affected</returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.InvoiceService.Update(GeoCloudAI.Application.Dtos.InvoiceDto)">
+            <summary>
+            Updates the specified invoice.
+            </summary>
+            <param name="invoice">The invoice.</param>
+            <returns>
+            The invoice
+            </returns>
             <exception cref="T:System.Exception"></exception>
         </member>
         <member name="T:GeoCloudAI.Application.Services.ProfileService">
