@@ -22,7 +22,7 @@ namespace GeoCloudAI.Persistence.Contracts
         /// Gets the by identifier.
         /// </summary>
         /// <param name="id">The identifier.</param>
-        /// <returns>Invoice</returns>
+        /// <returns>Invoice dto</returns>
         Task<Invoices> GetById(int id);
 
         /// <summary>
@@ -31,5 +31,12 @@ namespace GeoCloudAI.Persistence.Contracts
         /// <param name="invoice">The invoice.</param>
         /// <returns>Number columns affected</returns>
         Task<int> Update(Invoices invoice);
+
+        /// <summary>
+        /// Adds the specified invoice.
+        /// </summary>
+        /// <param name="invoice">The invoice.</param>
+        /// <returns>Invoice dto</returns>
+        Task<int> Add(Invoices invoice);
     }
 }

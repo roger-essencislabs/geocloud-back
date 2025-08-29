@@ -22,7 +22,13 @@ namespace GeoCloudAI.Application.Contracts
         /// Updates the specified invoice.
         /// </summary>
         /// <param name="invoice">The invoice.</param>
-        /// <returns>The invoice</returns>
+        /// <returns>The invoice dto</returns>
         Task<InvoiceDto> Update(InvoiceDto invoice);
+        /// <summary>
+        /// Add/ Creates the specified invoice.
+        /// </summary>
+        /// <param name="invoice">The invoice.</param>
+        /// <returns>The invoice dto</returns>
+        Task<InvoiceDto> Add(InvoiceDto invoice);
     }
 }

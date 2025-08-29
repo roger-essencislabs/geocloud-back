@@ -2,6 +2,8 @@
 using GeoCloudAI.Domain.Classes;
 using GeoCloudAI.Persistence.Contracts;
 using GeoCloudAI.Persistence.Data;
+using System.Transactions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace GeoCloudAI.Persistence.Repositories
 {
@@ -41,9 +43,9 @@ namespace GeoCloudAI.Persistence.Repositories
 
                 return invoices;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
         /// <summary>
@@ -61,9 +63,9 @@ namespace GeoCloudAI.Persistence.Repositories
                 var resultado = await conn.ExecuteAsync(sql: command, param: new { id });
                 return resultado;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
         /// <summary>
@@ -87,9 +89,9 @@ namespace GeoCloudAI.Persistence.Repositories
                 if (invoices.Count() == 0) return null;
                 return invoices.First();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
         }
         /// <summary>
@@ -114,9 +116,36 @@ namespace GeoCloudAI.Persistence.Repositories
                 var result = await conn.ExecuteAsync(sql: command, param: invoice);
                 return result;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
+            }
+        }
+
+        public async Task<int> Add(Invoices invoice)
+        {
+            try
+            {
+                var conn = _db.Connection;
+                using (TransactionScope scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
+                //using (var scope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled, TransactionScopeOption.Required))
+                {
+                    string command = @" INSERT INTO INVOICES(
+                                            invoice, 
+                                            amount,
+                                            date,  
+                                            status
+                                        )
+                                        VALUES(@invoice, @amount,@date, @status);
+                                        SELECT LAST_INSERT_ID();";
+                    var result = await conn.ExecuteScalarAsync<int>(sql: command, param: invoice);
+                    scope.Complete();
+                    return result;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
             }
         }
     }

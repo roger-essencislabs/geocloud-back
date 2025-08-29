@@ -93,7 +93,14 @@
             Updates the specified invoice.
             </summary>
             <param name="invoice">The invoice.</param>
-            <returns>The invoice</returns>
+            <returns>The invoice dto</returns>
+        </member>
+        <member name="M:GeoCloudAI.Application.Contracts.IInvoiceService.Add(GeoCloudAI.Application.Dtos.InvoiceDto)">
+            <summary>
+            Add/ Creates the specified invoice.
+            </summary>
+            <param name="invoice">The invoice.</param>
+            <returns>The invoice dto</returns>
         </member>
         <member name="T:GeoCloudAI.Application.Contracts.IProfileService">
             <summary>
@@ -748,6 +755,16 @@
             <param name="invoice">The invoice.</param>
             <returns>
             The invoice
+            </returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:GeoCloudAI.Application.Services.InvoiceService.Add(GeoCloudAI.Application.Dtos.InvoiceDto)">
+            <summary>
+            Add/ Creates the specified invoice.
+            </summary>
+            <param name="invoice">The invoice.</param>
+            <returns>
+            The invoice dto
             </returns>
             <exception cref="T:System.Exception"></exception>
         </member>

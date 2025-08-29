@@ -91,6 +91,26 @@ namespace GeoCloudAI.API.Controllers
                    $"Error when trying to update profile. Error: {ex.Message}");
             }
         }
+        /// <summary>
+        /// Add/Create the invoices.
+        /// </summary>
+        /// <param name="invoiceDto">The invoice dto.</param>
+        /// <returns>The invoice dto</returns>
+        [HttpPost]
+        [Route("AddInvoices")]
+        public async Task<IActionResult> AddInvoices(InvoiceDto invoiceDto)
+        {
+            try
+            {
+                var result = await _invoiceService.Add(invoiceDto);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                   $"Error when trying to update profile. Error: {ex.Message}");
+            }
+        }
     }
 }
 

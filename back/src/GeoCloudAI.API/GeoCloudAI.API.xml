@@ -109,6 +109,13 @@
             <param name="invoiceDto">The invoice dto.</param>
             <returns>The invoice dto</returns>
         </member>
+        <member name="M:GeoCloudAI.API.Controllers.InvoicesController.AddInvoices(GeoCloudAI.Application.Dtos.InvoiceDto)">
+            <summary>
+            Add/Create the invoices.
+            </summary>
+            <param name="invoiceDto">The invoice dto.</param>
+            <returns>The invoice dto</returns>
+        </member>
         <member name="T:GeoCloudAI.API.Controllers.ProfileController">
             <summary>
             This controller is responsible for managing user profiles.

@@ -4,6 +4,7 @@ using GeoCloudAI.Application.Dtos;
 using GeoCloudAI.Domain.Classes;
 using GeoCloudAI.Persistence.Contracts;
 using GeoCloudAI.Persistence.Repositories;
+using Microsoft.AspNetCore.Http;
 
 namespace GeoCloudAI.Application.Services
 {
@@ -103,6 +104,37 @@ namespace GeoCloudAI.Application.Services
                 //Map Class > Dto
                 var resultDto = _mapper.Map<InvoiceDto>(result);
                 
+                return resultDto;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        /// <summary>
+        /// Add/ Creates the specified invoice.
+        /// </summary>
+        /// <param name="invoice">The invoice.</param>
+        /// <returns>
+        /// The invoice dto
+        /// </returns>
+        /// <exception cref="System.Exception"></exception>
+        public async Task<InvoiceDto> Add(InvoiceDto invoice)
+        {
+            try
+            {
+                //Map Dto > Class
+                var addInvoice = _mapper.Map<Invoices>(invoice);
+                //Add Invoice
+                var resultCode = await _invoiceRepository.Add(addInvoice); // resultCode = "0" or "new Id"
+                if (resultCode == 0) 
+                    return null;
+                //Get New Invoice
+                var result = await _invoiceRepository.GetById(resultCode);
+                if (result == null) 
+                    return null;
+                //Map Class > Dto
+                var resultDto = _mapper.Map<InvoiceDto>(result);
                 return resultDto;
             }
             catch (Exception ex)

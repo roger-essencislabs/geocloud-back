@@ -31,8 +31,6 @@ namespace GeoCloudAI.Persistence.Repositories
                     scope.Complete();
                     return result;
                 }
-
-                 
             }
             catch (Exception ex)
             {
